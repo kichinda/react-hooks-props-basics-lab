@@ -1,11 +1,19 @@
-import React from "react";
+import {React, useState} from "react";
 
-function Home(props) {
+
+function Home({user}) {
+  const [isClicked, setIsClicked] = useState(false)
+
+  const handleClick=(e)=>{
+  console.log(e)
+  setIsClicked(!isClicked)
+  }
   return (
     <div id="home">
-      <h1 style={{ color: props.color }}>
-        {props.name} is a Web Developer from {props.city}
+      <h1 style={{ color: user.color }}>
+        {user.name} is a Web Developer from {user.city}
       </h1>
+      <button onClick={(e)=>handleClick(e)}>Click Me</button>
     </div>
   );
 }
